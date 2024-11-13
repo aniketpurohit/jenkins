@@ -43,6 +43,9 @@ pipeline {
         stage('Shared Stages') {
         steps {
             script {
+                def parameter = [
+                    'GLOBALVARIABLE' : GLOBALVARIABLE
+                ]
             sharedStages()
             }
         }
