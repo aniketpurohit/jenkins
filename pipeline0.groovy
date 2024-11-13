@@ -46,7 +46,7 @@ pipeline {
                 def parameter = [
                     'GLOBALVARIABLE' : GLOBALVARIABLE
                 ]
-            sharedStages()
+            sharedStages(parameter)
             }
         }
     }
