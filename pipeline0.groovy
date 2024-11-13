@@ -1,5 +1,8 @@
 @Library('shared-lib@main') _  // Use the name you set in Jenkins configuration
 
+
+def GLOBALVARIABLE = "new variable"
+
 pipeline {
     agent any
     
