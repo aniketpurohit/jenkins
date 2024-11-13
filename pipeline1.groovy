@@ -13,8 +13,11 @@ environment{
 }
 
 stages {
+
     stage('Initialize pipeline global variable'){
+        script{
         TEST_REPOSITORY_PATH = "${env.WORKSPACE_PATH}/test_repository"
+    }
     }
 
     stage('prepare directories'){
@@ -26,14 +29,17 @@ stages {
     }
 
     stage('Pyhton dependencies and workspace'){
-        pythondependencies()
+        script{
+        pythondependencies()}
     }
 
 
     stage('Monitir'){
         when { expression { params.test_of_list == true  } }
         steps{
+            script{
             echo "Monitoring"
+            }
         }
     }
 }
