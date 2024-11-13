@@ -2,7 +2,7 @@ def DIR
 
 def call(Map parameter=[:]){
     stage('Stage One') {
-        def DIR = "${params.dirs}"
+    DIR = "${params.dirs}"
      echo 'This is stage One'
     }
     stage('Stage Two') {
