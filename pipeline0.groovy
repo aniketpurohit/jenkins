@@ -20,7 +20,7 @@ pipeline {
         stage('Display Build Info') {
             steps {
                 script {
-                    buildInfo()  // Calls the buildInfo function from vars/buildInfo.groovy
+                    pythondependencies()  // Calls the buildInfo function from vars/buildInfo.groovy
                 }
             }
         }
