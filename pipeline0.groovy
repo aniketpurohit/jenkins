@@ -31,7 +31,8 @@ pipeline {
                 def parent = "/root"
                 def children = ["child0", "child1"]
                 script {
-                    makeDirectory(children, parent) // Calls the buildInfo function from vars/buildInfo.groovy
+                    def directory = [parent: parent, children: children] // Calls the buildInfo function from vars/buildInfo.groovy
+                    makeDirectory(directory)
                 }
             }
         }
