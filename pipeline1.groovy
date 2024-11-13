@@ -15,22 +15,28 @@ environment{
 stages {
 
     stage('Initialize pipeline global variable'){
+        steps{
         script{
         TEST_REPOSITORY_PATH = "${env.WORKSPACE_PATH}/test_repository"
     }
+        }
     }
 
     stage('prepare directories'){
+        steps{
         script{
             def children  =["${TEST_REPOSITORY_PATH}"]
             def directory = [children: children]
             makeDirectory(directory)
         }
     }
+    }
 
     stage('Pyhton dependencies and workspace'){
+        steps{
         script{
         pythondependencies()}
+    }
     }
 
 
