@@ -1,7 +1,8 @@
-@Library('shared-lib') _  // Use the name you set in Jenkins configuration
+@Library('shared-lib@main') _  // Use the name you set in Jenkins configuration
 
 pipeline {
     agent any
+    
     stages {
         stage('Greet User') {
             steps {
