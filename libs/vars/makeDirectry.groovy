@@ -9,7 +9,7 @@ map directory format
 */
 
 
-def call(map directory){
+def call(map directory, String parent= ''){
     if (directory.parent != null) {
         for(child in directory.children) {
             def temp = "${directory.parent}/child"

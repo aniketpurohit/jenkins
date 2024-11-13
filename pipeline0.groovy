@@ -28,12 +28,10 @@ pipeline {
 
         stage('create directory') {
             steps {
-                def dir = [
-                    "parent" :"/root"
-                    "children" : ['Child0', "Child1"]
-                ]
+                def parent = "/root"
+                def children = ["child0", "child1"]
                 script {
-                    makeDirectory(dir) // Calls the buildInfo function from vars/buildInfo.groovy
+                    makeDirectory(children, parent) // Calls the buildInfo function from vars/buildInfo.groovy
                 }
             }
         }
