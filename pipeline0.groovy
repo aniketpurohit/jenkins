@@ -5,6 +5,10 @@ def GLOBALVARIABLE = "new variable"
 
 pipeline {
     agent any
+
+    environment {
+        WORKSPACE_PATH = "${WORKSPACE}"
+    }
     
     stages {
         stage('Greet User') {
