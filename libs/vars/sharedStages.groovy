@@ -1,9 +1,13 @@
 def DIR 
 
+@Library('shared-lib@main') _  // Use the name you set in Jenkins configuration
+
 def call(Map parameter=[:]){
     stage('Stage One') {
     DIR = "${params.dirs}"
      echo 'This is stage One'
+
+     buildInfo()
     }
     stage('Stage Two') {
      echo 'This is stage Two'
