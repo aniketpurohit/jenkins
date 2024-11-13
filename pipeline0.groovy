@@ -37,6 +37,13 @@ pipeline {
             }
         }
 
-        sharedStages()
+        stage('Shared Stages') {
+        steps {
+            script {
+            sharedStages()
+            }
+        }
+    }
+
     }
 }
