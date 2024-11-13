@@ -6,7 +6,7 @@ def GLOBALVARIABLE = "new variable"
 pipeline {
     agent any
     parameters {
-        string(name: 'directory', defaultValue: '~', description='')
+        string(name: 'dirs', defaultValue: '~', description='')
     }
     environment {
         WORKSPACE_PATH = "${WORKSPACE}"
