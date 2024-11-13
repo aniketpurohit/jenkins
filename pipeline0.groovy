@@ -5,8 +5,9 @@ def GLOBALVARIABLE = "new variable"
 
 pipeline {
     agent any
-    
-    globalvariable()
+    stage{
+        globalvariable()
+    }
     
     stages {
         stage('Greet User') {
