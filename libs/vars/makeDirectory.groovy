@@ -15,7 +15,13 @@ def call(Map directory) {
             def temp = "${directory.parent}/${child}"  // Correct variable interpolation
             sh "mkdir -p ${temp}"  // Create the directory
         }
-    } else {
+    } 
+    else if(directory.children){
+        for(child in directory.children){
+        sh "mkdir -p ${child}"
+        }
+    }
+    else {
         error "Parent directory path is not provided."
     }
 }
