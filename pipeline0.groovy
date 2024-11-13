@@ -1,7 +1,7 @@
 @Library('shared-lib@main') _  // Use the name you set in Jenkins configuration
 
 
-def GLOBALVARIABLE 
+def GLOBALVARIABLE = "new variable"
 
 pipeline {
     agent any
@@ -43,11 +43,12 @@ pipeline {
         stage('Shared Stages') {
         steps {
             script {
-                def GLOBALVARIABLE = "new variable"
-                def parameter = [
-                    GLOBALVARIABLE : GLOBALVARIABLE
-                ]
-            sharedStages(parameter)
+                
+                
+             def parameter = [
+                        GLOBALVARIABLE: GLOBALVARIABLE  // Pass the variable to the method
+                    ]
+                    sharedStages(parameter)
             }
         }
     }
