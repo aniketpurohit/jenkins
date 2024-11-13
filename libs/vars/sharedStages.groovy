@@ -6,7 +6,6 @@ def call(Map parameter=[:]){
      echo 'This is stage Two'
      echo "${env.WORKSPACE_PATH}"
      echo "${params.dirs}"
-     echo "${dirs}"
     echo "${parameter.GLOBALVARIABLE}"
 
     }
