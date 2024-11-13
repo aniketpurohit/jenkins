@@ -13,4 +13,8 @@ def call(){
     catch (Exception e){
         echo "failure of the python"
     }
+
+    env.PYTHONPATH = "${env.WORKSPACE}:${env.PYTHONPATH}"
+    env.PYTHONUSERBASE = "${env.WORKSPACE}:${env.PYTHONUSERBASE}"
+    
 }
