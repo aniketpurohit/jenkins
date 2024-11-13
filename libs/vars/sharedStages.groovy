@@ -4,7 +4,7 @@ def call(Map parameter=[:]){
     }
     stage('Stage Two') {
      echo 'This is stage Two'
-    echo "${paramter.GLOBALVARIABLE}"
+    echo "${parameter.GLOBALVARIABLE}"
 
     }
 }
