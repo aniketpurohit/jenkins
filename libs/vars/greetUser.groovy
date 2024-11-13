@@ -1,7 +1,7 @@
 // greetUser.groovy
 def call(String name) {
     echo "Hello, ${name}! Welcome to the Jenkins pipeline."
-    if {false}{
+    if (false){
         echo "Some thing is false"
     }
     else if(true){
