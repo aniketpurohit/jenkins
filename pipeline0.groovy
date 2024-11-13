@@ -25,5 +25,17 @@ pipeline {
                 }
             }
         }
+
+        stage('create directory') {
+            steps {
+                def dir = [
+                    "parent" = "/root"
+                    "children" = ['Child0', "Child1"]
+                ]
+                script {
+                    makeDirectory(dir) // Calls the buildInfo function from vars/buildInfo.groovy
+                }
+            }
+        }
     }
 }
