@@ -8,7 +8,7 @@ def runPythonSript(String script){
 
 def call(){
     try{
-        def output = runPythonSript("-m pip install pandas")
+        def output = runPythonSript("print('Something is getting done')")
     }
     catch (Exception e){
         echo "failure of the python"
