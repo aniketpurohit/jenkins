@@ -28,9 +28,9 @@ pipeline {
 
         stage('create directory') {
             steps {
-                def parent = "/root"
-                def children = ["child0", "child1"]
                 script {
+                    def parent = "/root"
+                    def children = ["child0", "child1"]
                     def directory = [parent: parent, children: children] // Calls the buildInfo function from vars/buildInfo.groovy
                     makeDirectory(directory)
                 }
