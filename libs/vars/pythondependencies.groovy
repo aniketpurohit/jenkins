@@ -1,10 +1,5 @@
-def runPythonSript(String script){
-    output=sh(script: "python3 -c \"${script}\"", returnStdout: true).trim()
-    echo output
-    return output
 
-}
-
+@Library('shared-lib') _
 
 def call(){
     try{
