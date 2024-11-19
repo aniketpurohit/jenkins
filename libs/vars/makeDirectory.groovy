@@ -8,6 +8,7 @@ map directory format
 }
 */
 
+@Library('shared-lib') _
 
 def call(Map directory) {
     if (directory.parent) {  // Check if parent is not null or empty
