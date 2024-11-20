@@ -18,14 +18,14 @@ pipeline {
         stage('Greet User') {
             steps {
                 script {
-                    greetUser('John Doe')  // Calls the greetUser function from vars/greetUser.groovy
+                    globalhelper.greetUser('John Doe')  // Calls the greetUser function from vars/greetUser.groovy
                 }
             }
         }
         stage('Display Build Info') {
             steps {
                 script {
-                    buildInfo()  // Calls the buildInfo function from vars/buildInfo.groovy
+                    globalhelper.buildInfo()  // Calls the buildInfo function from vars/buildInfo.groovy
                 }
             }
         }
