@@ -1,5 +1,5 @@
 
-@Library('shared-lib') _
+@Library('shared-lib') import runPythonScript
 
 def call(){
     try{
