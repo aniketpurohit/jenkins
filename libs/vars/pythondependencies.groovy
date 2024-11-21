@@ -3,7 +3,9 @@
 
 def call(){
     try{
-        def output = runPythonScript("print('Something is getting done')")
+        def lib = "os"
+
+        def output = runPythonScript("import ${lib}; print(dir(${lib}))")
     }
     catch (Exception e){
         echo "failure of the python"
