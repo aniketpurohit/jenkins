@@ -4,6 +4,7 @@ def DIR
 
 def call(Map parameter=[:]){
     stage('Stage One') {
+        script{
     DIR = "${params.dirs}"
      echo 'This is stage One'
 
