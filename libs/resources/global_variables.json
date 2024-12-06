@@ -1,0 +1,5 @@
+{
+    "WORKSPACE_PATH": "${WORKSPACE}/temp/${JOB_NAME}/${BUILD_NUMBER}",
+    "CONFIG_PATH": "${WORKSPACE}/config/${JOB_NAME}/${BUILD_NUMBER}/Config",
+    "version": "v1"
+}
