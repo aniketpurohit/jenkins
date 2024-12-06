@@ -4,7 +4,7 @@ class GlobalVarsUtils {
 
     // Method to load global variables from JSON using readFile
     static Map loadGlobalVars(String jsonFilePath, Map parameters = [:]) {
-        echo "inside loadGlobalVars"
+        println "inside loadGlobalVars"
         // List of Jenkins environment variable keywords to replace
         List<String> containsKeywordList = [
             "BUILD_ID", "BUILD_NUMBER", "BUILD_DISPLAY_NAME",
@@ -22,12 +22,12 @@ class GlobalVarsUtils {
 
         // Read and parse JSON content
         def jsonContent = readJSON(file: jsonFilePath)
-        echo "Parsed JSON content: ${jsonContent}"
+        println "Parsed JSON content: ${jsonContent}"
 
         // Iterate over each key-value pair and process replacements
         jsonContent.each { fieldName, fieldValue ->
             if (fieldValue instanceof String) {
-                echo "Processing field '${fieldName}' with value '${fieldValue}'..."
+                println "Processing field '${fieldName}' with value '${fieldValue}'..."
 
                 // Check for Jenkins environment keywords
                 boolean containsKeyword = containsKeywordList.any { keyword ->
@@ -59,7 +59,7 @@ class GlobalVarsUtils {
 
                 // Update the JSON content with the modified field value
                 jsonContent[fieldName] = fieldValue
-                echo "Updated field '${fieldName}' to value '${fieldValue}'"
+                println "Updated field '${fieldName}' to value '${fieldValue}'"
             }
         }
 
@@ -74,6 +74,6 @@ class GlobalVarsUtils {
 
         // Write the JSON content to the file
         writeFile(file: jsonFilePath, text: jsonContent)
-        echo "Global variables saved to: ${jsonFilePath}"
+        println "Global variables saved to: ${jsonFilePath}"
     }
 }
