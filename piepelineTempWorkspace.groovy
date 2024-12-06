@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Load the global variables from the shared library
-                    def jsonFile = 'resources/global_variables.json'  // Adjust path if necessary
+                    def jsonFile = libraryResource('global_variables.json')  // Adjust path if necessary
                     def globals = CAFHelper.GlobalVarsUtils.loadGlobalVars(jsonFile)
                     echo "globals : ${globals}"
                     // Assign the custom workspace path from the loaded global variables

@@ -4,6 +4,7 @@ class GlobalVarsUtils {
 
     // Method to load global variables from JSON using readFile
     static Map loadGlobalVars(String jsonFilePath, Map parameters = [:]) {
+        echo "inside loadGlobalVars"
         // List of Jenkins environment variable keywords to replace
         List<String> containsKeywordList = [
             "BUILD_ID", "BUILD_NUMBER", "BUILD_DISPLAY_NAME",
