@@ -5,14 +5,14 @@ def call(String jsonFilePath, Map parameters = [:]) {
     echo "inside loadGlobalVars"
     
     // List of Jenkins environment variable keywords to replace
-    List<String> containsKeywordList = [
+    List containsKeywordList = [
         "BUILD_ID", "BUILD_NUMBER", "BUILD_DISPLAY_NAME",
         "BUILD_TAG", "BUILD_URL", "JOB_NAME", "JOB_BASE_NAME",
         "JOB_URL", "NODE_LABELS", "WORKSPACE", "NODE_NAME",
         "GIT_BRANCH", "GIT_URL", "JENKINS_HOME", "JENKINS_URL"
     ]
     
-    List<String> parametersKeys = parameters.keySet().toList()
+    List parametersKeys = parameters.keySet().toList()
 
     // Check if the file exists
     def jsonFile = new File(jsonFilePath)
