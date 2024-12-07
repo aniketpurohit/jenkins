@@ -11,7 +11,7 @@ pipeline {
                 script {
                     // Using the loadGlobalVars function from vars
                     def jsonPath = libraryResource('global_variables.json')
-                    def globalVars = loadGlobalVars(jsonPath)
+                    def globalVars = GlobalVarsUtils(jsonPath)
                     echo "Loaded global vars: ${globalVars}"
                 }
             }
