@@ -6,19 +6,26 @@ pipeline {
         CUSTOM_WORKSPACE = ''
     }
     stages {
-        stage('Load Global Variables') {
+        stage('Load Global Vars') {
             steps {
                 script {
-                    // Load the global variables from the shared library
-                    def jsonFile = libraryResource('global_variables.json')  // Adjust path if necessary
-                    def globals = CAFHelper.GlobalVarsUtils.loadGlobalVars(jsonFile)
-                    echo "globals : ${globals}"
-                    // Assign the custom workspace path from the loaded global variables
-                    //CUSTOM_WORKSPACE = globals.customWorkspace
-                    //echo "Custom workspace: ${CUSTOM_WORKSPACE}"
+                    // Using the loadGlobalVars function from vars
+                    def globalVars = loadGlobalVars('path/to/your/file.json', [customParam: 'value'])
+                    echo "Loaded global vars: ${globalVars}"
                 }
             }
         }
+        stage('Save Global Vars') {
+            steps {
+                script {
+                    // Using the saveGlobalVars function from vars
+                    saveGlobalVars('path/to/your/file.json', globalVars)
+                }
+            }
+        }
+    }
+}
+
 
         stage('Prepare Workspace') {
             steps {
