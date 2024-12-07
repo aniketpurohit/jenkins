@@ -10,28 +10,17 @@ pipeline {
             steps {
                 script {
                     // Using the loadGlobalVars function from vars
-                    def globalVars = loadGlobalVars('path/to/your/file.json', [customParam: 'value'])
+                    def jsonPath = libraryResource('global_variables.json')
+                    def globalVars = loadGlobalVars(jsonPath)
                     echo "Loaded global vars: ${globalVars}"
                 }
             }
         }
-        stage('Save Global Vars') {
-            steps {
-                script {
-                    // Using the saveGlobalVars function from vars
-                    saveGlobalVars('path/to/your/file.json', globalVars)
-                }
-            }
-        }
-    }
-}
-
-
         stage('Prepare Workspace') {
             steps {
                 script {
                     // Create the custom workspace
-                    com.yourcompany.WorkspaceUtils.createWorkspace(CUSTOM_WORKSPACE)
+                    //com.yourcompany.WorkspaceUtils.createWorkspace(CUSTOM_WORKSPACE)
                 }
             }
         }
