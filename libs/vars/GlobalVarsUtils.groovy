@@ -1,11 +1,11 @@
 def call(String jsonContent, Map parameters = [:]) {
-    List<String> containsKeywordList = [
+    List containsKeywordList = [
         "BUILD_ID", "BUILD_NUMBER", "BUILD_DISPLAY_NAME",
         "BUILD_TAG", "BUILD_URL", "JOB_NAME", "JOB_BASE_NAME",
         "JOB_URL", "NODE_LABELS", "WORKSPACE", "NODE_NAME",
         "GIT_BRANCH", "GIT_URL", "JENKINS_HOME", "JENKINS_URL"
     ]
-    List<String> parametersKeys = parameters.keySet().toList()
+    List parametersKeys = parameters.keySet().toList()
 
     // Parse JSON content
     def jsonContentMap = readJSON(text: jsonContent)
@@ -13,7 +13,7 @@ def call(String jsonContent, Map parameters = [:]) {
 
     // Iterate over each key-value pair and process replacements
     jsonContentMap.each { fieldName, fieldValue ->
-        if (fieldValue instanceof String) {
+        
             echo "Processing field '${fieldName}' with value '${fieldValue}'..."
 
             // Replace Jenkins environment variables
@@ -33,7 +33,7 @@ def call(String jsonContent, Map parameters = [:]) {
             // Update the JSON content with the modified field value
             jsonContentMap[fieldName] = fieldValue
             echo "Updated field '${fieldName}' to value '${fieldValue}'"
-        }
+        
     }
 
     return jsonContentMap
