@@ -8,19 +8,23 @@ def call(Map parameter=[:]) {
     }
 
     stage('Stage One') {
-        script {
-            DIR = "${params.dirs}"
-            echo 'This is stage One'
+        steps {
+            script {
+                DIR = "${params.dirs}"
+                echo 'This is stage One'
 
-            buildInfo()
+                buildInfo()
+            }
         }
         stage('Stage Two') {
-            script {
-                echo 'This is stage Two'
-                echo "${env.WORKSPACE_PATH}"
-                echo "${params.dirs}"
-                echo "${DIR}"
-                echo "${parameter.GLOBALVARIABLE}"
+            steps {
+                script {
+                    echo 'This is stage Two'
+                    echo "${env.WORKSPACE_PATH}"
+                    echo "${params.dirs}"
+                    echo "${DIR}"
+                    echo "${parameter.GLOBALVARIABLE}"
+                }
             }
         }
     }
