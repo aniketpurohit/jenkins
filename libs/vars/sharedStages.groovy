@@ -3,10 +3,7 @@ def DIR
 @Library('shared-lib@main') _  // Use the name you set in Jenkins configuration
 
 def call(Map parameter=[:]) {
-    pipeline {
-        agent { labels 'sc1' }
-    }
-
+    
     stage('Stage One') {
         steps {
             script {
