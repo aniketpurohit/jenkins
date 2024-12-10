@@ -7,12 +7,13 @@ def call(Map parameter=[:]) {
         script {
             DIR = "${params.dirs}"
             echo 'This is stage One'
-
+            sh "pwd"
             buildInfo()
         }
     }
     stage('Stage Two') {
         script {
+            sh "pwd"
             echo 'This is stage Two'
             echo "${env.WORKSPACE_PATH}"
             echo "${params.dirs}"
