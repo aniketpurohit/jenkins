@@ -18,6 +18,7 @@ def call(){
 }
 
 def rootpath(){
-    return "/var/jenkins_home/workspace/${env.JOB_NAME}"
+    jsonContent = libraryResource('global_variables.json')
+    return globalVarsUtils.getRootPath(jsonContent)
 }
 

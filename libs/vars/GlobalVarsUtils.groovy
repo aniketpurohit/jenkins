@@ -38,3 +38,26 @@ def call(String jsonContent, Map parameters = [:]) {
 
     return jsonContentMap
 }
+
+def getRootPath(String jsonContent, Map parameters = [:]) {
+    List containsKeywordList = [
+        "BUILD_ID", "BUILD_NUMBER", "BUILD_DISPLAY_NAME",
+        "BUILD_TAG", "BUILD_URL", "JOB_NAME", "JOB_BASE_NAME",
+        "JOB_URL", "NODE_LABELS", "WORKSPACE", "NODE_NAME",
+        "GIT_BRANCH", "GIT_URL", "JENKINS_HOME", "JENKINS_URL"
+    ]
+
+    def jsonContentMap = readJSON(text: jsonContent)
+    echo "Parsed JSON content: ${jsonContentMap}"
+
+    def fieldValue = jsonContentMap['ROOT_FOLDER']
+
+    // Replace Jenkins environment variables
+    containsKeywordList.each { keyword ->
+        if (fieldValue.contains("\${${keyword}}")) {
+            fieldValue = fieldValue.replace("\${${keyword}}", env."${keyword}" ?: "")
+        }
+    }
+    env.ROOT_FOLDER = fieldValue
+    return fieldValue
+}

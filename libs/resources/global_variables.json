@@ -1,5 +1,5 @@
 {
-    "WORKSPACE_PATH": "${WORKSPACE}/temp/${JOB_NAME}/${BUILD_NUMBER}",
-    "CONFIG_PATH": "${WORKSPACE}/config/${JOB_NAME}/${BUILD_NUMBER}/Config",
+    "ROOT_FOLDER": "/var/jenkins_home/workspace/${JOB_NAME}",
+    "CONFIG_PATH": "${WORKSPACE_PATH}/Config",
     "version": "v1"
 }
