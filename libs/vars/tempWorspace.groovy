@@ -8,6 +8,7 @@ def setup(){
 
 def call(){
     def pipelineName = env.JOB_NAME.replaceAll('/','-')
-    def tempWorkspace = "${env.WORKSPACE}/temp/${env.pipelineName}/${env.BUILD_NUMBER}"
+    def tempWorkspace = "${env.WORKSPACE}/temp/${pipelineName}/${env.BUILD_NUMBER}"
     return tempWorkspace
 }
+
