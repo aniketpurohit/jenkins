@@ -1,5 +1,5 @@
 {
-    "ROOT_FOLDER": "/var/jenkins_home/workspace/${JOB_NAME}",
+    "ROOT_FOLDER": "",
     "CONFIG_PATH": "${WORKSPACE_PATH}/Config",
     "version": "v1"
 }
