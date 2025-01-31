@@ -19,6 +19,6 @@ def call(){
 
 def rootpath(){
     jsonContent = libraryResource('global_variables.json')
-    return globalVarsUtils.getRootPath(jsonContent)
+    return globalVarUtil.getRootPath(jsonContent)
 }
 
