@@ -11,8 +11,13 @@ def setup(){
 
 def call(){
     def pipelineName = env.JOB_NAME.replaceAll('/','-')
-    def tempWorkspace = "/var/jenkins_home/workspace/${env.JOB_NAME}/temp/${pipelineName}/${env.BUILD_NUMBER}"
+    def rootpathval = rootpath()
+    def tempWorkspace = "${rootpathval}/temp/${pipelineName}/${env.BUILD_NUMBER}"
 
     return tempWorkspace
+}
+
+def rootpath(){
+    return "/var/jenkins_home/workspace/${env.JOB_NAME}"
 }
 
