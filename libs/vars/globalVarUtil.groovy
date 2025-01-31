@@ -50,7 +50,8 @@ def getRootPath(String jsonContent, Map parameters = [:]) {
     def jsonContentMap = readJSON(text: jsonContent)
     echo "Parsed JSON content: ${jsonContentMap}"
 
-    def fieldValue = jsonContentMap['ROOT_FOLDER']
+    def fieldValue = jsonContentMap.get("ROOT_FOLDER", '/var/jenkins_home/workspace/${JOB_NAME}')
+    echo "Processing field 'ROOT_FOLDER' with value '${fieldValue}'..."
 
     // Replace Jenkins environment variables
     containsKeywordList.each { keyword ->
